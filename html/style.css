@@ -1,0 +1,83 @@
+
+* {
+    margin: 0px;
+    padding:0px;
+    font-size: 20px;
+}
+.container{
+    width: 80%;
+    margin: 50px auto;
+    background-color: skyblue;
+}
+.search {
+    display: flex;
+    width: 100%;
+    margin: auto;
+}
+
+
+
+
+#button-search{
+    width: 100px;
+    background-color: #0d6efd;
+    color: white;
+    font-size:20px;
+}
+
+
+#input-search{
+   width:100%;
+   font-size: 20px;
+   margin-right:auto;
+}
+
+
+
+
+ 
+
+.kategori {
+
+    
+    
+    margin: 100px auto;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.kategori button{
+    width: 15%;
+}
+
+
+
+
+
+ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 40px;
+    column-gap: 20px;
+}
+
+
+
+
+
+.keterangan {
+    display: flex;
+    justify-content: space-between;
+}
+
+#page {
+    display: flex;
+    justify-content: center;
+}
+
+.page-button {
+    width: 20px;
+    margin: 0px 3px;
+}
+

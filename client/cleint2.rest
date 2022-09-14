@@ -1,0 +1,94 @@
+
+
+GET http://localhost:3000/api/project/?search=website1
+
+###
+
+GET http://localhost:3000/api/project/?category=website
+
+
+###
+
+###$###############PROject
+
+POST http://localhost:3000/api/project/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWxmaWFuIiwiYWRtaW5faWQiOjEsImlhdCI6MTY2MzE1MDM0MX0.y5W2z2dl2Y1PTdoBsMxNln5tRGYo3LceEpYatp7vAYc
+Content-Type: application/json
+
+{
+    "id":20,
+    "excerpt":"alfian ganteng",
+    "date":"2022-09-30",
+    "img":"data/budaya/anime.jpg",
+    "title":"Data baru banng",
+    "categorieId":4
+}
+
+### 
+DELETE http://localhost:3000/api/project/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWxmaWFuIiwiYWRtaW5faWQiOjEsImlhdCI6MTY2MzE1MDM0MX0.y5W2z2dl2Y1PTdoBsMxNln5tRGYo3LceEpYatp7vAYc
+
+###
+
+PUT http://localhost:3000/api/project/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWxmaWFuIiwiYWRtaW5faWQiOjEsImlhdCI6MTY2MzE1MDM0MX0.y5W2z2dl2Y1PTdoBsMxNln5tRGYo3LceEpYatp7vAYc
+Content-Type: application/json
+
+{
+    "excerpt":"alfian ganteng",
+    "img":"data/budaya/xxx.jpg"
+}
+
+
+
+
+#######################  Admin
+POST http://localhost:3000/api/admin/signup
+Content-Type: application/json
+
+{
+    "name":"alfian",
+    "password":"1234567"
+}
+
+###
+POST http://localhost:3000/api/admin/login
+Content-Type: application/json
+
+{
+    "name":"alfian",
+    "password":"1234567"
+}
+
+###
+
+
+
+
+
+
+#############################untuk category
+
+POST http://localhost:3000/api/category/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWxmaWFuIiwiYWRtaW5faWQiOjEsImlhdCI6MTY2MzE1MDM0MX0.y5W2z2dl2Y1PTdoBsMxNln5tRGYo3LceEpYatp7vAYc
+
+{
+    "categoryName":"alfian"
+}
+
+###
+GET http://localhost:3000/api/category/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWxmaWFuIiwiYWRtaW5faWQiOjEsImlhdCI6MTY2MzE1MDM0MX0.y5W2z2dl2Y1PTdoBsMxNln5tRGYo3LceEpYatp7vAYc
+
+###
+DELETE  http://localhost:3000/api/category/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWxmaWFuIiwiYWRtaW5faWQiOjEsImlhdCI6MTY2MzE1MDM0MX0.y5W2z2dl2Y1PTdoBsMxNln5tRGYo3LceEpYatp7vAYc
+###
+PUT http://localhost:3000/api/category/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWxmaWFuIiwiYWRtaW5faWQiOjEsImlhdCI6MTY2MzE1MDM0MX0.y5W2z2dl2Y1PTdoBsMxNln5tRGYo3LceEpYatp7vAYc
+Content-Type: application/json
+
+{
+    "categoryName":"dasda"
+}

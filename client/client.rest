@@ -1,0 +1,58 @@
+
+
+POST http://localhost:3000/admin/signup
+Content-Type: application/json
+
+{
+    "name":"alfian",
+    "password":"1234567"
+}
+
+###
+
+POST http://localhost:3000/admin/login
+Content-Type: application/json
+
+{
+    "name":"alfian",
+    "password":"1234567"
+}
+
+#############################################################
+
+POST http://localhost:3000/admin/post/category
+Authorization: Bearer 
+Content-Type: application/json
+
+{
+    "category_name":"dekstop",
+    
+}
+
+###
+POST http://localhost:3000/admin/post/project
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWxmaWFuIiwiYWRtaW5faWQiOjEsImlhdCI6MTY2Mjk5NDM3Nn0.ZtcTERO9mxrQRMh4xVVn2Ouc8DMy4alV7a9iVenEFDs
+Content-Type: application/json
+
+{
+    "project_name":"Game dota2",
+    "team":"Uruguay"
+}
+
+
+###
+POST http://localhost:3000/admin/post/projectCategory
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWxmaWFuIiwiYWRtaW5faWQiOjEsImlhdCI6MTY2Mjk5NDM3Nn0.ZtcTERO9mxrQRMh4xVVn2Ouc8DMy4alV7a9iVenEFDs
+Content-Type: application/json
+
+{
+    "excerpt":"Tulisan tentang kamu dan dia",
+    "date":"2020-10-10",
+    "img":"data/gunung/gunung1.jpg",
+    "team":"Team Kang arya",
+    "title":"Game dota2",
+    "category":"game"
+}
+
+###
+
