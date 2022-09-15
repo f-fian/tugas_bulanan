@@ -1,18 +1,8 @@
-
-
-// const controller = require('../modules/order/controller/order-controller');
-// const auth = require('../middleware/auth');
-// const validation = require('../middleware/validation');
-// const { request } = require('../modules/order/request/order-request');
-
 import {sequelize,Project,ProjectCategory,Admin} from "../database/model/model.js"
 import {authenticateToken} from "../middleware/auth.js"
 
 export default function(express) {
   const router = express.Router();
-
-
-
 
   router.delete("/:id",authenticateToken,(req,res)=>{
       Project.destroy({
@@ -71,17 +61,10 @@ export default function(express) {
 
 
   })
-
-
   router.route('/')
-
     .post(authenticateToken, async (req,res)=>{
-      
-      console.log("atas")
       const {id,excerpt,date,img,title,categorieId} = req.body
-
       const t = await sequelize.transaction();
-
             try {
             console.log("sampe sini")
 
@@ -93,11 +76,13 @@ export default function(express) {
               title:title,
             },{transaction:t})
 
-            const newProjectCategory = await ProjectCategory.create({
-              projectId:id,
-              categorieId:categorieId
-            },{transaction: t });
-
+            for (let x = 0; x < categorieId.length; x++){
+                var newProjectCategory = await ProjectCategory.create({
+                  projectId:id,
+                  categorieId:categorieId[x]
+                },{transaction: t });
+            }
+            
             await t.commit();
             res.status(201).send({
               message:"Project Baru telah berhasil di tambahkan",
@@ -106,18 +91,17 @@ export default function(express) {
             })
 
             } catch (error) {
-                
-            // If the execution reaches this line, an error was thrown.
-            // We rollback the transaction.
                 console.log(error)
                 await t.rollback();
             }
 
     })
 
-
     .get(async (req,res)=>{
-      let {search,category} = req.query
+      let {search,category,page} = req.query
+      let offset = (page-1)*4
+
+      console.log(`--------page${page}`)
 
       if(category=="undefined"){
         category = undefined
@@ -125,14 +109,16 @@ export default function(express) {
       if(search=="undefined"){
         search = undefined
       }
+
+
       let filter = {}
-  
       if (search){
         console.log("search")
         filter = {where:{title:search}}
         // const data = await Project.findOne(filter)
         // res.send(data)
       }
+
       if (category){ 
         const datax = await ProjectCategory.findAll({
           where:{
@@ -143,20 +129,21 @@ export default function(express) {
         for (let data of datax){
           listId.push(data.dataValues.projectId)
         }
-        filter = {where:{id:listId}}
+        filter = {where:{id:listId},limit:4,offset:offset}
+      }
+      if (category == "all"){
+          filter = {limit:4,offset:offset}
       }
   
       const data = await Project.findAll(filter)
+      const count = await Project.count(filter)
+      
       const results = {}
-      results.maxPage = 1
+      results.maxPage = Math.ceil(count/4)
       results.results = data
       // console.log(results)
       res.send(results)
     });
-
-    
-
-    
 
   return router;
 }

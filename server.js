@@ -30,6 +30,10 @@ buatTabel()
 app.use("/api",route(express))
 
 
+app.listen(port,()=>{
+    console.log(`server is running at port ${port}`)
+})
+
 
 
 

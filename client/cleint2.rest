@@ -16,12 +16,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWxmaWFuI
 Content-Type: application/json
 
 {
-    "id":20,
+    "id":21,
     "excerpt":"alfian ganteng",
     "date":"2022-09-30",
     "img":"data/budaya/anime.jpg",
     "title":"Data baru banng",
-    "categorieId":4
+    "categorieId":[4,1]
 }
 
 ### 
