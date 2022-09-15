@@ -47,7 +47,7 @@ export default function(express){
                 id:req.params.id
             }
         })
-        res.send(204)
+        res.status(204).send("category deleted succesfully")
     })
 
     .put(authenticateToken,async (req,res)=>{

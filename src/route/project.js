@@ -76,18 +76,21 @@ export default function(express) {
               title:title,
             },{transaction:t})
 
+            let lisetNewProjectCategory = []
             for (let x = 0; x < categorieId.length; x++){
-                var newProjectCategory = await ProjectCategory.create({
+                let newProjectCategory = await ProjectCategory.create({
                   projectId:id,
                   categorieId:categorieId[x]
                 },{transaction: t });
+
+                lisetNewProjectCategory.push(newProjectCategory)
             }
             
             await t.commit();
             res.status(201).send({
               message:"Project Baru telah berhasil di tambahkan",
               project:newProject,
-              ProjectCategory:newProjectCategory
+              ProjectCategory:lisetNewProjectCategory
             })
 
             } catch (error) {
